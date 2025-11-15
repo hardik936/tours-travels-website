@@ -1,0 +1,17 @@
+{
+  "pages": {
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/vendors-_app-pages-browser_node_modules_next_dist_compiled_next_react-refresh-utils_dist_runt-70ff9a.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/vendors-_app-pages-browser_node_modules_next_dist_compiled_next_react-refresh-utils_dist_runt-70ff9a.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ]
+  }
+}
