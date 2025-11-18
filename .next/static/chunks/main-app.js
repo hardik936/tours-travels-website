@@ -8,7 +8,7 @@
  */
 (self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([["main-app"],{
 
-/***/ "?608e":
+/***/ "?239a":
 /*!*****************************************************!*\
   !*** private-next-instrumentation-client (ignored) ***!
   \*****************************************************/
@@ -21,7 +21,7 @@
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, ["vendors-_app-pages-browser_node_modules_next_dist_compiled_next_react-refresh-utils_dist_runt-70ff9a"], () => (__webpack_exec__("(app-pages-browser)/./node_modules/next/dist/compiled/@next/react-refresh-utils/dist/runtime.js"), __webpack_exec__("(app-pages-browser)/./node_modules/next/dist/client/app-next-dev.js")));
+/******/ __webpack_require__.O(0, ["vendors-_app-pages-browser_node_modules_next_dist_compiled_next_react-refresh-utils_dist_runt-70ff9a"], () => (__webpack_exec__("(app-pages-browser)/../node_modules/next/dist/compiled/@next/react-refresh-utils/dist/runtime.js"), __webpack_exec__("(app-pages-browser)/../node_modules/next/dist/client/app-next-dev.js")));
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ _N_E = __webpack_exports__;
 /******/ }

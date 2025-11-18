@@ -45,7 +45,8 @@ const SpecialOffers = () => {
               <div className="absolute bottom-0 left-0 p-6">
                 <h3 className="text-2xl font-bold mb-2">{offer.title}</h3>
                 <p className="mb-4 max-w-md">{offer.description}</p>
-                <Link href={offer.link} passHref>
+                {/* FIX: Using UrlObject for href to satisfy Typed Routes */}
+                <Link href={{ pathname: offer.link }}>
                    <Button>Book Now</Button>
                 </Link>
               </div>
