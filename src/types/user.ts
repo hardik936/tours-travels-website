@@ -1,3 +1,5 @@
+// src/types/user.ts
+
 /**
  * Roles that a user can have in the system.
  */
@@ -5,7 +7,9 @@ export enum UserRole {
   /** Regular end user / customer */
   User = "user",
   /** Administrator with elevated permissions */
-  Admin = "admin"
+  Admin = "admin",
+  /** A tour guide with specific permissions */
+  Guide = "guide",
 }
 
 /**
@@ -22,13 +26,25 @@ export interface IUser {
   phone: string;
   /**
    * IDs of bookings associated with this user.
-   * Can be populated with full IBooking objects at usage site if needed.
    */
   bookingHistory: string[];
   /** List of tour IDs that the user has wishlisted */
   wishlist: string[];
   /** Optional URL or path to the user's profile picture */
   profilePicture?: string;
-  /** Role of the user (user/admin) */
-  role?: UserRole;
+  /** Role of the user, which determines their permissions */
+  role: UserRole;
+}
+
+/**
+ * Represents a user's public profile information, which was missing.
+ * Exporting this interface fixes the import error in other files.
+ */
+export interface IUserProfile {
+  /** The ID of the user this profile belongs to */
+  userId: string;
+  /** A short biography of the user */
+  bio?: string;
+  /** The user's general location (e.g., "City, Country") */
+  location?: string;
 }
