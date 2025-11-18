@@ -4,70 +4,14 @@ import Link from 'next/link';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Rating } from '@/components/ui/Rating';
-import type { ITour } from '@/types/tour';
 import { FiClock, FiArrowRight } from 'react-icons/fi';
+import { MockTour } from '@/data/mock'; // Use the extended mock type
 
-type FeaturedTour = ITour & {
-  images: string[];
-  reviewCount: number;
-};
+interface FeaturedToursProps {
+  tours: MockTour[];
+}
 
-const featuredTours: FeaturedTour[] = [
-    {
-        id: '1',
-        title: 'Mystical Bali: Temples & Rice Paddies',
-        description: 'Discover the spiritual heart of Bali, from ancient temples to lush, terraced rice paddies.',
-        price: 120000,
-        duration: 7,
-        destination: 'Bali, Indonesia',
-        maxGuests: 12,
-        rating: 4.8,
-        reviews: [], 
-        images: ['/images/tour-bali.jpg'],
-        reviewCount: 120,
-    },
-    {
-        id: '2',
-        title: 'Italian Riviera & Cinque Terre',
-        description: 'Hike through the five picturesque villages of Cinque Terre and soak in the Italian sun.',
-        price: 250000,
-        duration: 10,
-        destination: 'Rome, Italy',
-        maxGuests: 10,
-        rating: 4.9,
-        reviews: [],
-        images: ['/images/tour-italy.jpg'],
-        reviewCount: 95,
-    },
-    {
-        id: '3',
-        title: 'Ancient Wonders of Egypt',
-        description: 'Journey down the Nile and uncover the timeless secrets of the Pharaohs and their pyramids.',
-        price: 180000,
-        duration: 8,
-        destination: 'Cairo, Egypt',
-        maxGuests: 15,
-        rating: 4.7,
-        reviews: [],
-        images: ['/images/tour-egypt.jpg'],
-        reviewCount: 210,
-    },
-    {
-        id: '4',
-        title: 'Japanese Alps & Cherry Blossoms',
-        description: 'Witness the stunning beauty of Japan in spring, from bustling Tokyo to the serene Alps.',
-        price: 320000,
-        duration: 12,
-        destination: 'Kyoto, Japan',
-        maxGuests: 8,
-        rating: 5.0,
-        reviews: [],
-        images: ['/images/tour-japan.jpg'],
-        reviewCount: 150,
-    },
-];
-
-const FeaturedTours = () => {
+const FeaturedTours: React.FC<FeaturedToursProps> = ({ tours }) => {
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
@@ -75,9 +19,8 @@ const FeaturedTours = () => {
         <p className="text-center text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
           Handpicked tours that promise an unforgettable journey, packed with adventure and discovery.
         </p>
-
-        <div className="grid grid-cols-1 sm-grid-cols-2 lg:grid-cols-4 gap-8">
-          {featuredTours.map((tour) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {tours.map((tour) => (
             <Card key={tour.id} className="group overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
               <div className="relative">
                 <img
@@ -101,7 +44,6 @@ const FeaturedTours = () => {
                     <span>{tour.duration} Days</span>
                   </div>
                 </div>
-                {/* FIX: Using UrlObject for href to satisfy Typed Routes */}
                 <Link href={{ pathname: `/tours/${tour.id}` }}>
                   <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                     View Details
@@ -112,7 +54,6 @@ const FeaturedTours = () => {
           ))}
         </div>
         <div className="text-center mt-12">
-          {/* FIX: Using UrlObject for href to satisfy Typed Routes */}
           <Link href={{ pathname: '/tours' }}>
             <Button size="lg" variant="secondary">
               <span>View All Tours</span>
